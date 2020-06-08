@@ -1,0 +1,80 @@
+﻿@page
+@model TimeSheet.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>TimeSheet Index</h1>
+
+<p>
+    <a asp-page="Create">Create New TimeSheet</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].ProjectID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].WorkHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].ManagerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].ApproveDate)
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblTimeSheetEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectID)
+                @Model.GetProject(item.ProjectID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApproveDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TimesheetID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TimesheetID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TimesheetID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@page
+@model Approval.IndexModel
+
+@{
+    ViewData["Title"] = "Index Approval";
+}
+
+<h1>Approval Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].ProjectID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].WorkHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblTimeSheetEntry[0].ManagerID)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblTimeSheetEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectID)
+                @Model.GetProject(item.ProjectID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerID)
+            </td>
+            <td>
+                <a asp-page="./Approve" asp-route-id="@item.TimesheetID">Approve</a> |
+                <a asp-page="./Reject" asp-route-id="@item.TimesheetID">Reject</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

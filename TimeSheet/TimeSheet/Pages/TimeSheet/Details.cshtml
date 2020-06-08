@@ -1,0 +1,67 @@
+﻿@page
+@model TimeSheet.DetailsModel
+
+@{
+    ViewData["Title"] = "Details TimeSheet";
+}
+
+<h1>Details TimeSheet</h1>
+
+<div>
+    <h4>TblTimeSheetEntry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.UserID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.UserID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.EntryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.EntryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.ProjectID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.ProjectID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.WorkHour)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.WorkHour)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.Keterangan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.Keterangan)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.ManagerID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.ManagerID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblTimeSheetEntry.ApproveDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblTimeSheetEntry.ApproveDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TblTimeSheetEntry.TimesheetID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model Login.LoginIndexModel
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<h1>Login Page</h1>
+
+<span class="text-danger">@Model.Message</span>
+<form method="post" asp-page="Login">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td>
+                <input type="text" asp-for="@Model.InputUsername" />
+                <span asp-validation-for="@Model.InputUsername" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="password" asp-for="@Model.InputPassword" />
+                <span asp-validation-for="@Model.InputPassword" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" value="Login" /></td>
+        </tr>
+    </table>
+</form>
